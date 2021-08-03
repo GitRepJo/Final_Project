@@ -1,0 +1,5 @@
+[console_scripts]
+get_image = navi_subsys_1_0.img_converter:main
+get_string = navi_subsys_1_0.get_string:main
+write_string = navi_subsys_1_0.write_string:main
+

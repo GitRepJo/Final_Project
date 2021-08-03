@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/linsim/dev_ws/install/navi_subsys_1_0/lib/python3.8/site-packages",
+        "/home/linsim/dev_ws/install/gnc_interfaces/lib/python3.8/site-packages",
+        "/home/linsim/ros2_foxy/ros2-linux/lib/python3.8/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/linsim/dev_ws/install/navi_subsys_1_0/lib/python3.8/site-packages",
+        "/home/linsim/dev_ws/install/gnc_interfaces/lib/python3.8/site-packages",
+        "/home/linsim/ros2_foxy/ros2-linux/lib/python3.8/site-packages"
+    ]
+}

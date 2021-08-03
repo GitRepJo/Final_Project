@@ -1,0 +1,26 @@
+[0.181s] Invoking command in '/home/linsim/dev_ws/src/navi_subsys_1_0': PYTHONPATH=/home/linsim/dev_ws/src/navi_subsys_1_0/install/navi_subsys_1_0/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/navi_subsys_1_0 build --build-base /home/linsim/dev_ws/src/navi_subsys_1_0/build/navi_subsys_1_0/build install --prefix /home/linsim/dev_ws/src/navi_subsys_1_0/install/navi_subsys_1_0 --record /home/linsim/dev_ws/src/navi_subsys_1_0/build/navi_subsys_1_0/install.log --single-version-externally-managed
+[0.338s] running egg_info
+[0.338s] writing build/navi_subsys_1_0/navi_subsys_1_0.egg-info/PKG-INFO
+[0.339s] writing dependency_links to build/navi_subsys_1_0/navi_subsys_1_0.egg-info/dependency_links.txt
+[0.339s] writing entry points to build/navi_subsys_1_0/navi_subsys_1_0.egg-info/entry_points.txt
+[0.339s] writing requirements to build/navi_subsys_1_0/navi_subsys_1_0.egg-info/requires.txt
+[0.339s] writing top-level names to build/navi_subsys_1_0/navi_subsys_1_0.egg-info/top_level.txt
+[0.361s] reading manifest file 'build/navi_subsys_1_0/navi_subsys_1_0.egg-info/SOURCES.txt'
+[0.362s] writing manifest file 'build/navi_subsys_1_0/navi_subsys_1_0.egg-info/SOURCES.txt'
+[0.362s] running build
+[0.362s] running build_py
+[0.362s] copying navi_subsys_1_0/get_string.py -> /home/linsim/dev_ws/src/navi_subsys_1_0/build/navi_subsys_1_0/build/lib/navi_subsys_1_0
+[0.362s] running install
+[0.363s] running install_lib
+[0.363s] copying /home/linsim/dev_ws/src/navi_subsys_1_0/build/navi_subsys_1_0/build/lib/navi_subsys_1_0/get_string.py -> /home/linsim/dev_ws/src/navi_subsys_1_0/install/navi_subsys_1_0/lib/python3.8/site-packages/navi_subsys_1_0
+[0.364s] byte-compiling /home/linsim/dev_ws/src/navi_subsys_1_0/install/navi_subsys_1_0/lib/python3.8/site-packages/navi_subsys_1_0/get_string.py to get_string.cpython-38.pyc
+[0.365s] running install_data
+[0.365s] running install_egg_info
+[0.366s] removing '/home/linsim/dev_ws/src/navi_subsys_1_0/install/navi_subsys_1_0/lib/python3.8/site-packages/navi_subsys_1_0-0.0.0-py3.8.egg-info' (and everything under it)
+[0.366s] Copying build/navi_subsys_1_0/navi_subsys_1_0.egg-info to /home/linsim/dev_ws/src/navi_subsys_1_0/install/navi_subsys_1_0/lib/python3.8/site-packages/navi_subsys_1_0-0.0.0-py3.8.egg-info
+[0.367s] running install_scripts
+[0.378s] Installing get_image script to /home/linsim/dev_ws/src/navi_subsys_1_0/install/navi_subsys_1_0/lib/navi_subsys_1_0
+[0.378s] Installing get_string script to /home/linsim/dev_ws/src/navi_subsys_1_0/install/navi_subsys_1_0/lib/navi_subsys_1_0
+[0.378s] Installing write_string script to /home/linsim/dev_ws/src/navi_subsys_1_0/install/navi_subsys_1_0/lib/navi_subsys_1_0
+[0.379s] writing list of installed files to '/home/linsim/dev_ws/src/navi_subsys_1_0/build/navi_subsys_1_0/install.log'
+[0.392s] Invoked command in '/home/linsim/dev_ws/src/navi_subsys_1_0' returned '0': PYTHONPATH=/home/linsim/dev_ws/src/navi_subsys_1_0/install/navi_subsys_1_0/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/navi_subsys_1_0 build --build-base /home/linsim/dev_ws/src/navi_subsys_1_0/build/navi_subsys_1_0/build install --prefix /home/linsim/dev_ws/src/navi_subsys_1_0/install/navi_subsys_1_0 --record /home/linsim/dev_ws/src/navi_subsys_1_0/build/navi_subsys_1_0/install.log --single-version-externally-managed
