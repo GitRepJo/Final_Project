@@ -1,6 +1,15 @@
 # Final_Project
-Unity3d scripts for simulation of an inland navigation small vessel and ROS2 packages for data processing.  
-Due to copyright reasons, the virtual sensors itself are not published here. However a rosbag is supplied with data from the sensors as recorded in ROS2
+Unity3d scripts for simulation of an inland navigation small vessel and 
+ROS2 packages for data processing.
+
+The aim of this project is to develop a software architecture that allows for the                  
+integration of virtual sensors in the navigation subsystem of a guidance, navigation         
+and control system of a small vessel in the inland navigation sector. In addition       
+to the integration of virtual sensors, the architecture should be easily extendable           
+towards the utilization of real sensors.  
+
+Due to copyright reasons, the virtual sensors itself are not published here.      
+However a rosbag is supplied with data from the sensors as recorded in ROS2.          
 
 For further information see the pages in the wiki.
 
