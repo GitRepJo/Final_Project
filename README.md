@@ -11,7 +11,7 @@ towards the utilization of real sensors.
 Due to copyright reasons, the virtual sensors itself are not published here.      
 However a rosbag is supplied with data from the sensors as recorded in ROS2.          
 
-For further information see the pages in the wiki.
+For further information see the pages in the [wiki](https://github.com/GitRepJo/Final_Project/wiki).
 
 Example images are provided below.
 
