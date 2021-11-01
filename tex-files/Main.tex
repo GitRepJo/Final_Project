@@ -1,0 +1,164 @@
+\documentclass[fontsize = 12pt,						%Schriftgröße
+paper = a4,								%Papierformat
+headings = small,					%Größe der Überschriften
+open=right,								%Abschnitte beginnen rechts
+cleardoublepage = empty,		%leere Seiten ohne Kopfzeile
+BCOR = 10mm,								%Binde Korrektur
+captions = tableheading,		%Tabellen mit Überschriften
+bibliography = totoc,			%Literatur- ins Inhaltsverzeichnis
+listof = totoc,						%Verzeichnisse ins Inhaltsverzeichnis
+twoside = false]						%doppelseitiges Layout
+{scrbook}										%Dokumentklasse
+
+% headsepline Auslassen von Kopfzeilen bei Kapiteln und titlepage das Auslassen von einer Titelseitennummerierung
+%\usepackage[ngerman]{babel} % Für die deutsche Sprache
+%\usepackage{ngerman}
+\usepackage{eurosym} % Eurozeichen
+%\usepackage[utf8]{inputenc} % Für deutsche Umlaute
+\usepackage{graphicx} % Für die Einbringung von Graphiken
+\usepackage{subcaption} % Für das Darstellen von Graphiken nebeneinander
+\usepackage{multirow} % Für Tabellen, 1 Zeile auf 2 Zeilen
+\usepackage{tocvsec2} % Für das Herausnehmen von Untersektionen aus dem Inhaltsverzeichnis (settocdepth{section})
+\usepackage{setspace} % Für den Zeilenabstand
+\usepackage{scrhack} %um den error \float@listhead detected!(scrartcl)
+\usepackage{booktabs} % Für unterschiedlich Breite senkrechte Tabellenlinien (vertikale Linien können als unnötig angesehen werden)
+\usepackage{pdfpages} % Um pdfs zu inkludieren
+\usepackage{float} % Platziert Abbildungen an exakt dem Platz   [H]
+\usepackage{pstricks}
+ %\usepackage[style=numeric,backend=biber,giveninits=true,doi=false,isbn=false,url=false]{biblatex} %Für die Bibliography
+ \usepackage[style=numeric,backend=biber,doi=false,isbn=false]{biblatex} %Für die Bibliography
+ \DefineBibliographyStrings{american}{phdthesis = {PhD dissertation}}
+ \bibliography{bib} %Ort der Bibliography
+ \usepackage{csquotes} %Für zitieren mit biblatex notwendig
+ 
+\usepackage{amsmath, amsthm, amssymb, amsfonts} % Für das Darstellen von Formeln
+
+\usepackage{pifont} % xmark und checkmark
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\numberwithin{equation}{section}   % Nummerierung der Formeln abschnittsweise
+  
+\usepackage{gensymb} % Für das darstellen von degree
+  
+\usepackage{chngcntr} %Für kapitelweise Nummerierung der Abbildungen
+  \counterwithout{figure}{section}
+  \counterwithout{figure}{subsection}
+  %\counterwithin{figure}{chapter}
+  
+\usepackage{xcolor} %Für ein dunkleres blau zum besseren Drucken
+  \definecolor{ultramarine}{RGB}{0,32,96}
+
+\usepackage[printonlyused, nohyperlinks]{acronym} %Für ein Abkürzungsverzeichnis, nur benutzte Abkürzungen werden 	  aufgeführt, keine hyperlinks weil diese sonst gefärbt sein würden
+  \renewcommand*{\acsfont}[1]{{\color{black}\text{#1}}} % Setzt die Farbe der Abkürzungen im Text auf schwarz
+
+\usepackage{tikz} %Für Ablaufdiagramm und andere Zeichnungen
+\usetikzlibrary{matrix,shapes,arrows,positioning,chains}
+\usetikzlibrary{calc,patterns,angles,quotes} % Um Grad einzuzeichnen
+\usetikzlibrary{trees} % Für entscheidungsbäume
+\tikzstyle{decision} = [diamond, draw, text width=4.5em,node distance=3.5cm, text badly centered,inner sep=0pt] %Definiert den Entscheidungsblock 
+\tikzstyle{block} = [rectangle, draw, text centered, rounded corners,   ] %minimum height=4em,text width=20em  %Definiert den Anweisungsblock
+\tikzstyle{line} = [draw, -latex'] %Definiert die Verbindungslinie
+
+\usepackage{forest} % u.a. Für das Darstellen von horizontalen Entscheidungsbäumen 
+\usetikzlibrary{positioning}
+ \usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,shapes.symbols,chains} % Für Systemdiagramme
+
+\usepackage{hyperref} % Für Querverweise im Inhaltsverzeichnis auf Kapitel (Auch Adobe Reader Infos möglich)
+  \hypersetup{hidelinks,% Keine Box und keine Farbe für Querverweise
+	      colorlinks   = true, %gefärbte Links anstatt Boxen 
+	      allcolors=black,   %Jede Farbe auf blau
+	      linktocpage % Seitenzahlen werden gefärbt, nicht die Buchstaben
+  }
+  \texorpdfstring{}{} %Formeln in hyperref angezeigt werden können.
+ 
+\usepackage{pythonhighlight} % Darstellen von Python Programmierung
+ 
+\usepackage{listings} % Für das Einfügen von Quelltext 
+  \renewcommand{\lstlistingname}{Code} % Für das Ändern der Quellcode Unterschriften
+  \renewcommand{\lstlistlistingname}{List Code} % Für das Ändern der Quellcodeverzeichnis Überschrift
+  \lstset{ % Einstellungen für listings
+    language=python, % Programmiersprache
+    numbers=left, % Zeilennummern links anzeigen
+      numbersep=-15pt,   % Abstand zwischen Nummer und Code
+    basicstyle=\footnotesize, % Größe der Quellcode Buchstaben
+    captionpos=b, % Position einer Beschriftung
+       xleftmargin={-0.2cm}, % Abstand zum linken Rand um Zeilennummern an Text auszurichten
+%    xleftmargin=\textwidth, xrightmargin=\textwidth
+  }
+
+\usepackage{scrpage2}
+\usepackage{scrhack}
+\pagestyle{scrheadings}
+\automark[section]{chapter}
+\addtokomafont{pageheadfoot}{\normalfont\sffamily}
+\addtokomafont{pagenumber}{\normalfont\sffamily\bfseries}
+\setheadsepline{0.4pt}
+\clearscrheadfoot
+%\cehead[]{\leftmark}
+%\cohead[]{\rightmark}
+\ohead[]{\pagemark}
+\ofoot[\pagemark]{}
+\ihead[]{\leftmark}
+\ihead[]{\rightmark}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+\usepackage{afterpage} % Für eine leere Seite
+\newcommand\blankpage{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\newpage}
+
+\usepackage[Sonny]{fncychap}		%Sonny/Lenny/Glenn/Conny/Rejne/Bjarne
+\ChTitleVar{\LARGE\bfseries}
+\ChNameVar{\large\bfseries}
+\begin{document}
+
+   \renewcommand*{\chapterpagestyle}{empty}
+  
+   \frontmatter
+
+  \clearpage
+   \include{Titel}
+  %\afterpage{\blankpage}
+   \clearpage
+   \makeatletter\@openrightfalse
+   \include{Summary}
+   
+
+  \@openrighttrue\makeatother 
+   \tableofcontents
+  
+   \clearpage
+   \include{Akronyme} % Auflistung der Abkürzungen
+  
+
+  \mainmatter % den Hauptteil beginnen
+   \clearpage
+
+   \pagestyle{scrheadings}  % Kopfzeilen
+   \thispagestyle{scrheadings}  % Kopfzeilen
+
+  \include{Introduction}
+  \include{Fundamentals}
+  \include{Implementation}
+  \include{ModulImplementation}
+  \include{Experiment}
+  \include{Conclusion}
+  \printbibliography % Anzeigen der Bibliography	 
+ 
+  \clearpage
+  \listoffigures
+  
+  \clearpage
+  \listoftables
+  
+  \clearpage
+  %\lstlistoflistings
+  \appendix		
+  \include{Attachements}  
+  \clearpage
+\end{document}

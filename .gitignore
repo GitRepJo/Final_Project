@@ -1,0 +1,13 @@
+# Compiliation files of Latex not necessary
+*.log
+*.bbl
+*.blg
+*.log
+*.gz
+*.aux
+*.lof
+*.lout
+*.out
+*.toc
+*.bcf
+*.xml

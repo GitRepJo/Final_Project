@@ -1,0 +1,68 @@
+\chapter{Execution time of the systems methods}\label{Attachtable}
+ Table \ref{tab_abb} details the execution time on average of every method that is used in this thesis. In the first column, an abbreviation for the method is defined. Followed by the class the method can be found in, the methods name is given. The name is followed by the average execution time of the according message. The last column shows the average execution time of all methods of one class. Methods (1) to (2) belong to the Unity3d environment and methods (3) to (4) relate to the \ac{ROS} system. Every horizontal single line represents a different sensor and every horizontal double line indicates a different system. An exception from the previous explanation is made for the case (5a) to (5d). These are the messages for a \ac{ROS} interface and the average execution time translates to the time that is needed for a transmission from Unity3d to \ac{ROS}. As the messages are transmitted in parallel to each other, they are not summed up. 
+ \newpage
+	\begin{table}[H]
+	\centering
+	\caption{Average execution time of methods}
+	\begin{tabular}{l l l c c }  
+		Abbreviation&Class/Package& Method/Message&\multicolumn{1}{p{1cm}}{$\varnothing$\newline [ms]} &\multicolumn{1}{p{1cm}}{ Sum\newline [ms]} \\ 
+		\midrule\midrule
+		1a (Directions Radar)	& RadarSensor &Calculate direc.()&1&\multirow{6}{*}{6}\\
+		1b (Raycast Radar)	& RadarSensor 	& CommandRaycast	&4&	\\
+		1c (Map Radar)		& RadarSensor 	& MapToPlane() 		&2&	\\
+		1d (Save Radar)	& RadarSensor 	& Save() 			&0&	\\
+		1e (Message Radar)	& ROSPublishRadar1 & SetMessage()	&0&	\\ 	
+		1f (Publish Radar)	& ROSPublishRadar1 & Publish() 		&1&	\\
+		\midrule
+		2c (Data Image)	& SensorImage 	& UpdateImage()		&13&\multirow{3}{*}{13}	\\
+		1g (Message Image)	& ROSPublishImg & SetMessage() 		&0&	\\
+		1h (Publish Image)	& ROSPublishImg	& Publish()			&0&	\\
+		\midrule
+		1i (Publish IMU)	& ROSPublishIMU	& Publish() 		&0&\multirow{2}{*}{0}	\\	
+		1j (Data IMU)		& SensorIMU		& GetIMUData()		&0&	\\
+		\midrule
+		1k (Message Lidar)	& ROSPublishXYZ	& SetMessage 		&0&\multirow{3}{*}{69}	\\				
+		2a (Data Lidar)	& LidarSensor	& Lidar() 			&10&	\\
+		2b (Publish Lidar)	& ROSPublishXYZ	& Publish() 		&59&	\\	
+		\midrule\midrule
+		5a (Radar) 	&gnc/interfaces&/radar1/img 								&30&30	\\	
+		5b (Lidar) 	&gnc/interfaces&/lidar1/xyz								&86&86	\\
+		5c (IMU) 	&gnc/interfaces&/imu1/accvel								&9&9	\\
+		5d (Image) 	&gnc/interfaces&/cam1/pixel								&6&6	\\
+		\midrule\midrule
+		3a (SOCA-CFAR)         & get\_radar &bounding\_box() 	&2&	\multirow{3}{*}{83}\\
+		3b (Publish Radar)   & get\_radar &publish()			&0&	\\	
+		4c (Visualize Radar) & get\_radar &visualize\_cluster()&81&	\\
+		\midrule
+		3c (Read Image)      & get\_image & read\_image()		&3&\multirow{4}{*}{91}	\\	
+		3d (Hough)             & get\_image & lines\_extraction()&13&	\\
+		3e (Publish Image)   & get\_image & publish\_lines() 	&1&	\\
+		4a (Visualize Image) & get\_image & visualization()	&74&	\\
+		\midrule	
+		3f (DBSCAN)            & get\_lidar & dbscan()			&29& \multirow{4}{*}{1017}	\\
+		3g (B. Box Lidar)& get\_lidar & bounding\_box()	&186&	\\
+		3h (Publish Lidar)   & get\_lidar & publish()			&3&	\\
+		4d (Visualize Lidar) & get\_lidar & visualize\_cluster()&799&	\\
+		\midrule
+		4b (Visualize IMU)   & get\_imu   & visualize\_data()	&72& \multirow{1}{*}{72}	\\	
+		% Change position, group with other image times
+
+	
+		
+	\end{tabular}
+	\label{tab_abb}
+\end{table}
+\chapter{Improvements to the existing system}\label{Attachlistb}	
+In the following, a list of implementations is shown that may improve the software of the system. In itself the single points are expected to contribute only little to the overall system performance but may increase the performance considerably when summed up.
+\begin{itemize}
+	\item The \ac{GPU} utilization in the Unity3d scene is low even with a low framerate due to a high computational effort. Parallelizing more tasks would contribute to a higher framerate as the computation load is focused not only on one \ac{GPU} unit. 
+	\item The intern network load of the operating system is considerably higher than the messages that are send from Unity3d. The image message as implemented in this work provides an example of dividing a message in metadata that is send over the \ac{ROS} network and data that is saved by the operating system and captured by \ac{ROS} upon request. However it has to be kept in mind that this approach is not in compliance with the design rules for a \ac{ROS} package.
+	\item As shown, visualizing high amounts of data with the python library \textit{matplotlib} takes a long time when executed in the \ac{ROS} environment. Finding another way to plot data with \textit{matplotlib} or find an optimized library for this purpose may prove to be advantageous.   
+	\item The calculation of the bounding boxes of the \ac{LIDAR} cluster takes a long time due to recurrent iterations over the dataset. Elaborate on the used algorithm can result in lower computation time. 
+	\item Due to the raycasts in the simulation that reconstruct the \ac{LIDAR} laser beams, the resulting virtual sensor takes a long time until all rays are send. Dividing the raycast into beams that are independent from each other could provide an opportunity to utilize multiple cores in addition to the \textit{JobHandle} that is already used. Investigating in other steps that need a long time to be executed may result in further possibilities of optimization.
+	\item  As the methods used in this work are dependent on each other, they were not tested in an isolated environment. Creating data that simulates the output of methods, single routines can be tested and influences, e.g. queing data, of other methods can be avoided.
+	\item The rendering of the reflection on water requires a separate camera in the Unity3s scene. Several water planes are used and thus the computational effort is rising. Avoiding a multitude of rendered cameras can increase the frames per second with which events are calculated in Unity3d. As proposed, using a more elaborated water simulation can solve this problem.
+	\item To simulate the analogous beam signal of a real \ac{RADAR}, many ray casts are necessary in Unity3d. Using a box raycast that is given by the physics engine of Unity3d, instead of many rays, one cast over an area is made with a three dimensional shape. The advantage is the reduced computational effort due to the reduced ray casts.
+	\item Instead of using a decentralised solution in which every data is saved locally in the classes that transmit data to other classes, a central location to can be allocated from where the classes do queries for the data they need. This avoids the recurrent allocation of memory for the data e.g. from sensors.
+	
+\end{itemize}
